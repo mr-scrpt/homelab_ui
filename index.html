@@ -1,10 +1,53 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomeLab - Домашняя сеть</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
-    <div>Web UI</div>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <i class="fas fa-network-wired"></i>
+          <h1>HomeLab</h1>
+        </div>
+        <div class="search-container">
+          <input type="text" id="search" placeholder="Найти сервис..." />
+          <i class="fas fa-search"></i>
+        </div>
+      </header>
+
+      <div class="welcome-section">
+        <h2>Добро пожаловать в домашнюю сеть</h2>
+        <p>Доступ к внутренним сервисам и управлению инфраструктурой</p>
+      </div>
+
+      <div class="services-container">
+        <div class="category">
+          <h3>Управление системами</h3>
+          <div class="services" id="management-services"></div>
+        </div>
+        <div class="category">
+          <h3>Медиа сервисы</h3>
+          <div class="services" id="media-services"></div>
+        </div>
+        <div class="category">
+          <h3>Сетевые сервисы</h3>
+          <div class="services" id="network-services"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>HomeLab Dashboard © <span id="current-year"></span></p>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
