@@ -5,7 +5,7 @@ const services = [
     description: "Настройка сети и доступа к интернету",
     url: "router.homelab.loc",
     category: "network",
-    icon: "fa-router",
+    icon: "fa-bezier-curve",
   },
   {
     name: "Управление хостингом",
