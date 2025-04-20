@@ -118,21 +118,27 @@ header {
 .service-card {
   background-color: var(--bg-secondary);
   border-radius: var(--radius);
-  padding: 20px;
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
   box-shadow: var(--shadow);
+  height: 100%;
 }
 
 .service-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Стили для ссылок внутри карточек */
+.service-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  text-decoration: none;
+  color: var(--text-primary);
+  text-align: center;
 }
 
 .service-card .icon {
@@ -144,6 +150,8 @@ header {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .management .icon {
@@ -172,11 +180,22 @@ header {
   margin-bottom: 15px;
 }
 
+/* Для выравнивания URL внизу карточки */
+.service-link {
+  position: relative;
+  padding-bottom: 50px; /* Место для URL внизу */
+}
+
 .service-card .url {
   color: var(--accent-secondary);
   font-size: 14px;
   font-family: monospace;
   word-break: break-all;
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
 footer {

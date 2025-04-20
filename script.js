@@ -4,6 +4,7 @@ const services = [
     name: "Управление роутером",
     description: "Настройка сети и доступа к интернету",
     url: "router.homelab.loc",
+    protocol: "https",
     category: "network",
     icon: "fa-bezier-curve",
   },
@@ -11,6 +12,7 @@ const services = [
     name: "Управление хостингом",
     description: "Платформа для размещения веб-приложений",
     url: "coolify.hosting.loc",
+    protocol: "https",
     category: "management",
     icon: "fa-server",
   },
@@ -18,6 +20,7 @@ const services = [
     name: "Управление Pi Hole",
     description: "Блокировка рекламы на уровне DNS",
     url: "dns.homelab.loc",
+    protocol: "https",
     category: "network",
     icon: "fa-ban",
   },
@@ -25,6 +28,7 @@ const services = [
     name: "Управление домом",
     description: "Умный дом и автоматизация",
     url: "hs.homelab.loc",
+    protocol: "https",
     category: "management",
     icon: "fa-house",
   },
@@ -32,6 +36,7 @@ const services = [
     name: "Управление файлами",
     description: "Доступ к сетевому хранилищу",
     url: "nas.homelab.loc",
+    protocol: "https",
     category: "management",
     icon: "fa-hard-drive",
   },
@@ -39,6 +44,7 @@ const services = [
     name: "Управление PROXMOX",
     description: "Виртуализация и контейнеры",
     url: "proxmox.homelab.loc",
+    protocol: "https",
     category: "management",
     icon: "fa-cubes",
   },
@@ -46,6 +52,7 @@ const services = [
     name: "Torrent WebUI",
     description: "Загрузка файлов через торрент-клиент",
     url: "download.homelab.loc",
+    protocol: "https",
     category: "media",
     icon: "fa-download",
   },
@@ -53,6 +60,7 @@ const services = [
     name: "Медиасервер",
     description: "Стриминг фильмов, сериалов и музыки",
     url: "plex.homelab.loc",
+    protocol: "https",
     category: "media",
     icon: "fa-photo-film",
   },
@@ -60,6 +68,7 @@ const services = [
     name: "Панель для Traefik",
     description: "Управление обратным прокси",
     url: "proxy.homelab.loc",
+    protocol: "https",
     category: "network",
     icon: "fa-globe",
   },
@@ -105,28 +114,24 @@ function renderServices() {
   hideEmptyCategories();
 }
 
-// Создание карточки сервиса
 function createServiceCard(service) {
   const card = document.createElement("div");
   card.className = `service-card ${service.category}`;
 
+  // Используем тег <a> для правильного перехода по ссылке
   card.innerHTML = `
-        <div class="icon">
-            <i class="fas ${service.icon}"></i>
-        </div>
-        <h4>${service.name}</h4>
-        <p>${service.description}</p>
-        <div class="url">${service.url}</div>
+        <a href="${service.protocol}://${service.url}" target="_blank" class="service-link">
+            <div class="icon">
+                <i class="fas ${service.icon}"></i>
+            </div>
+            <h4>${service.name}</h4>
+            <p>${service.description}</p>
+            <div class="url">${service.url}</div>
+        </a>
     `;
-
-  // Добавление обработчика для перехода по ссылке
-  card.addEventListener("click", () => {
-    window.location.href = `http://${service.url}`;
-  });
 
   return card;
 }
-
 // Скрытие пустых категорий
 function hideEmptyCategories() {
   const categories = document.querySelectorAll(".category");
